@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Edit Employee
+{% endblock %}
+
+{% block content %}
+
+<div class="edit-container">
+ 
+<div class="edit-card">
+
+    <h2>Edit Employee</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text"
+                   name="first_name"
+                   value="{{ editEmp.first_name }}">
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text"
+                   name="last_name"
+                   value="{{ editEmp.last_name }}">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   value="{{ editEmp.email }}">
+        </div>
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text"
+                   name="phone"
+                   value="{{ editEmp.phone }}">
+        </div>
+
+        <div class="form-group">
+            <label>Salary</label>
+            <input type="number"
+                   name="salary"
+                   value="{{ editEmp.salary }}">
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea name="address">{{ editEmp.address }}</textarea>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="update-btn">
+                Update Employee
+            </button>
+
+            <a href="{% url 'empList' %}" class="cancel-btn">
+                Cancel
+            </a>
+        </div>
+
+    </form>
+
+</div>
+ 
+
+</div>
+
+{% endblock %}
